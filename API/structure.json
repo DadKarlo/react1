@@ -7,13 +7,13 @@
 			"NameCompitition": "Название ваших соревнований по плаванию.",
 			"NameTitle": "Соревнования по плаванию | Competitive Swimming",
 			"Info": "Дополнительная информация при необходимости.",
-			"Lines": 1,
-			"ShowDate": true,
-			"ShowTeam": true,
-			"ShowTime": true,
-			"UseGroup": true,
-			"UseCategory": true,
-			"UseUpRung": true,
+			"Lines": "1",
+			"ShowDate": "true",
+			"ShowTeam": "true",
+			"ShowTime": "true",
+			"UseGroup": "true",
+			"UseCategory": "true",
+			"UseUpRung": "true",
 			"DistancePosition": []
 		},
 		"sportsmens": [
@@ -31,5 +31,24 @@
 				"idr": ""
 			}
 		]
+	},
+	{
+		"login": "qqqqqqqqqq",
+		"setup": {
+			"timeReg": 1772826432785,
+			"URLCLIENT": 1,
+			"NameCompitition": "Чемпионат России по плаванию",
+			"NameTitle": "Соревнования по плаванию | Competitive Swimming",
+			"Info": "Дополнительная информация при необходимости.",
+			"Lines": "1",
+			"ShowDate": "true",
+			"ShowTeam": "true",
+			"ShowTime": "true",
+			"UseGroup": "true",
+			"UseCategory": "true",
+			"UseUpRung": "true",
+			"DistancePosition": []
+		},
+		"sportsmens": []
 	}
 ]
