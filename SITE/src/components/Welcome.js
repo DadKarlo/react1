@@ -12,7 +12,7 @@ export default function Welcome(props) {
 				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
-				// marginTop: '3rem',
+				marginTop: '1rem',
 			}}
 		>
 			<h1>{!!props.enru ? 'Hello and Welcome ' : 'Добро пожаловать '}!</h1>
