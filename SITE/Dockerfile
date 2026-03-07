@@ -5,7 +5,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-COPY certs/ /certs/
+COPY certs/ /build/certs/
 COPY nginx.conf .
 
 
