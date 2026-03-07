@@ -1,6 +1,9 @@
 FROM node:alpine as build
 
-RUN mkdir -p /certs
+RUN mkdir -p /certs 
+
+COPY ./certs/domain.crt /certs/domain.crt
+COPY ./certs/domain.key /certs/domain.key
 
 COPY package.json package.json
 RUN npm install
