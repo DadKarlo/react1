@@ -61,7 +61,7 @@ export default function Welcome(props) {
 					justifyContent: 'center',
 					height: '24rem',
 				}}
-				action={API_site + 'login'}
+				action={API_site + '/login'}
 				method="post"
 			>
 				<input
