@@ -1,0 +1,54 @@
+[
+	{
+		"login": "Shcherbakov_Dmitriy_Igorevich",
+		"setup": {
+			"timeReg": "",
+			"URLCLIENT": "0",
+			"NameCompitition": "Название ваших соревнований по плаванию.",
+			"NameTitle": "Соревнования по плаванию | Competitive Swimming",
+			"Info": "Дополнительная информация при необходимости.",
+			"Lines": "1",
+			"ShowDate": "true",
+			"ShowTeam": "true",
+			"ShowTime": "true",
+			"UseGroup": "true",
+			"UseCategory": "true",
+			"UseUpRung": "true",
+			"DistancePosition": []
+		},
+		"sportsmens": [
+			{
+				"id": 123456789,
+				"firstname": "",
+				"lastname": "",
+				"birthday": "",
+				"team": "",
+				"sex": "",
+				"TimeStart": "",
+				"TimeFinish": "",
+				"ids": "",
+				"idz": "",
+				"idr": ""
+			}
+		]
+	},
+	{
+		"login": "qqqqqqqqqq",
+		"setup": {
+			"timeReg": 1772826432785,
+			"URLCLIENT": 1,
+			"NameCompitition": "Чемпионат России по плаванию",
+			"NameTitle": "Соревнования по плаванию | Competitive Swimming",
+			"Info": "Дополнительная информация при необходимости.",
+			"Lines": "1",
+			"ShowDate": "true",
+			"ShowTeam": "true",
+			"ShowTime": "true",
+			"UseGroup": "true",
+			"UseCategory": "true",
+			"UseUpRung": "true",
+			"DistancePosition": []
+		},
+		"sportsmens": []
+	}
+]
