@@ -8,8 +8,8 @@ const sport = require('./structure.json')
 app.use(express.urlencoded({ extended: true })) //!!! обработка формы ОБЯЗАТЕЛЬНО!!!
 app.use(express.json()) //!!! обязательно для body запроса !!!
 const API = '/apidimon08041996reostat12'
-const APIALL = 'http://localhost:5000/apidimon08041996reostat12'
-const prodaction = 'http://swim-ru.ru/'
+const APIALL = 'https://localhost:5000/apidimon08041996reostat12'
+const prodaction = 'https://swim-ru.ru/'
 const port = process.env.PORT || 5000
 
 // Сообщение о том, что сервер запущен и прослушивает указанный порт
