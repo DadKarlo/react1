@@ -4,10 +4,11 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 const sport = require('./structure.json')
+const { APIid } = require('./secret')
 
 app.use(express.urlencoded({ extended: true })) //!!! обработка формы ОБЯЗАТЕЛЬНО!!!
 app.use(express.json()) //!!! обязательно для body запроса !!!
-const API = '/apidimon08041996reostat12'
+const API = APIid
 const APIALL = 'http://localhost:5000/apidimon08041996reostat12'
 const prodaction = 'http://swim-ru.ru/'
 const port = process.env.PORT || 5000
