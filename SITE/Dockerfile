@@ -1,13 +1,12 @@
 FROM node:alpine as build
 
-RUN mkdir -p /certs 
-
-COPY ./certs /certs/
-
 COPY package.json package.json
 RUN npm install
 COPY . .
 RUN npm run build
+
+COPY certs/ /certs/
+COPY nginx.conf .
 
 
 FROM nginx:stable-alpine
