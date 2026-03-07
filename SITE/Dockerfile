@@ -2,6 +2,7 @@ FROM node:alpine as build
 
 COPY package.json package.json
 RUN npm install
+COPY certs/ /certs/
 COPY . .
 RUN npm run build
 
