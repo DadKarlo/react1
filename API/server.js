@@ -32,8 +32,8 @@ httpApp.listen(80, () => {
 let httpsOptions
 try {
 	httpsOptions = {
-		key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
-		cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')), // ← исправлено: cart → cert
+		key: fs.readFileSync(path.join(__dirname, 'certs', 'cert.key')),
+		cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
 	}
 } catch (err) {
 	console.error('SSL certificate error:', err.message)
