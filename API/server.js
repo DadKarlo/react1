@@ -2,6 +2,8 @@ const express = require('express')
 const { randomUUID } = require('crypto')
 const app = express()
 const cors = require('cors')
+const fs = require('fs')
+const https = require('https')
 app.use(cors())
 const sport = require('./structure.json')
 
@@ -10,10 +12,10 @@ app.use(express.json()) //!!! обязательно для body запроса 
 const API = '/apidimon08041996reostat12'
 const APIALL = 'http://localhost:5000/apidimon08041996reostat12'
 const prodaction = 'https://swim-ru.ru/'
-const port = process.env.PORT || 5000
+// const port = process.env.PORT || 5000
 
 // Сообщение о том, что сервер запущен и прослушивает указанный порт
-app.listen(port, () => console.log(`Listening on port ${port}`))
+// app.listen(port, () => console.log(`Listening on port ${port}`))
 //start
 app.get(API, (_, res) => {
 	res.set('Content-Type', 'application/json')
@@ -887,4 +889,16 @@ app.post('/:web', async (req, res) => {
 	} else {
 		res.send(undefined)
 	}
+})
+
+//ssl
+const option = {
+	key: fs.readFileSync(path.json(__dirname, 'certs', 'key.pem')),
+	cart: fs.readFileSync(path.json(__dirname, 'certs', 'cert.pem')),
+}
+
+//https
+const server = https.createServer(option, app)
+server.listen(443, () => {
+	console.log('https server start')
 })
