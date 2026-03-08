@@ -2,10 +2,7 @@ const express = require('express')
 const { randomUUID } = require('crypto')
 const app = express()
 const cors = require('cors')
-const fs = require('fs')
-const https = require('https')
-const http = require('http')
-const path = require('path')
+
 app.use(cors())
 const sport = require('./structure.json')
 
@@ -14,10 +11,10 @@ app.use(express.json()) //!!! обязательно для body запроса 
 const API = '/apidimon08041996reostat12'
 const APIALL = 'http://localhost:5000/apidimon08041996reostat12'
 const prodaction = 'https://swim-ru.ru/'
-// const PORT = process.env.PORT || 5000
+const port = process.env.PORT || 5000
 
 // Сообщение о том, что сервер запущен и прослушивает указанный порт
-// app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`))
 
 //start
 app.get(API, (_, res) => {
@@ -896,8 +893,8 @@ app.post('/:web', async (req, res) => {
 
 // //ssl
 // const option = {
-// 	key: fs.readFileSync('./certs/cert.key'),
-// 	cert: fs.readFileSync('./certs/cert.pem'),
+// 	key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+// 	cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
 // }
 
 // //https
@@ -905,34 +902,3 @@ app.post('/:web', async (req, res) => {
 // server.listen(443, () => {
 // 	console.log('https server start')
 // })
-
-// === HTTP редирект (порт 80 → 443) ===
-http
-	.createServer((req, res) => {
-		res.writeHead(301, { Location: 'https://' + req.headers.host + req.url })
-		res.end()
-	})
-	.listen(80, () => {
-		console.log('HTTP редирект запущен на порту 80')
-	})
-
-// === HTTPS настройки ===
-let httpsOptions
-try {
-	httpsOptions = {
-		key: fs.readFileSync(path.join(__dirname, 'certs', 'cert.key')),
-		cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
-	}
-} catch (err) {
-	console.error('❌ Ошибка загрузки SSL-сертификата:', err.message)
-	console.error('Выполните:')
-	console.error(
-		'mkdir certs && openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certs/key.pem -out certs/cert.pem',
-	)
-	process.exit(1)
-}
-
-// === Запуск HTTPS ===
-https.createServer(httpsOptions, app).listen(443, () => {
-	console.log('✅ HTTPS сервер запущен на порту 443')
-})
