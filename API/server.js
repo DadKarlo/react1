@@ -4,6 +4,8 @@ const app = express()
 const cors = require('cors')
 const fs = require('fs')
 const https = require('https')
+const http = require('http')
+const path = require('path')
 app.use(cors())
 const sport = require('./structure.json')
 
@@ -12,10 +14,43 @@ app.use(express.json()) //!!! обязательно для body запроса 
 const API = '/apidimon08041996reostat12'
 const APIALL = 'http://localhost:5000/apidimon08041996reostat12'
 const prodaction = 'https://swim-ru.ru/'
-// const port = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 
 // Сообщение о том, что сервер запущен и прослушивает указанный порт
 // app.listen(port, () => console.log(`Listening on port ${port}`))
+
+// === HTTP сервер (редирект на HTTPS) ===
+const httpApp = express()
+httpApp.get('*', (req, res) => {
+	res.redirect('https://' + req.headers.host + req.url)
+})
+httpApp.listen(80, () => {
+	console.log('HTTP redirect server running on port 80')
+})
+
+// === HTTPS настройки ===
+let httpsOptions
+try {
+	httpsOptions = {
+		key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+		cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')), // ← исправлено: cart → cert
+	}
+} catch (err) {
+	console.error('SSL certificate error:', err.message)
+	console.error(
+		'Run: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certs/key.pem -out certs/cert.pem',
+	)
+	process.exit(1)
+}
+
+// Сообщение о запуске
+console.log(`Listening on port ${PORT}`)
+
+// Запуск HTTPS
+https.createServer(httpsOptions, app).listen(443, () => {
+	console.log('HTTPS server running on port 443')
+})
+
 //start
 app.get(API, (_, res) => {
 	res.set('Content-Type', 'application/json')
@@ -891,14 +926,14 @@ app.post('/:web', async (req, res) => {
 	}
 })
 
-//ssl
-const option = {
-	key: fs.readFileSync(path.json(__dirname, 'certs', 'key.pem')),
-	cart: fs.readFileSync(path.json(__dirname, 'certs', 'cert.pem')),
-}
+// //ssl
+// const option = {
+// 	key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+// 	cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
+// }
 
-//https
-const server = https.createServer(option, app)
-server.listen(443, () => {
-	console.log('https server start')
-})
+// //https
+// const server = https.createServer(option, app)
+// server.listen(443, () => {
+// 	console.log('https server start')
+// })
