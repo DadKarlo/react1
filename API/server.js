@@ -4,8 +4,8 @@ const app = express()
 const cors = require('cors')
 const fs = require('fs')
 const https = require('https')
-// const http = require('http')
-// const path = require('path')
+const http = require('http')
+const path = require('path')
 app.use(cors())
 const sport = require('./structure.json')
 
@@ -894,14 +894,45 @@ app.post('/:web', async (req, res) => {
 	}
 })
 
-//ssl
-const option = {
-	key: fs.readFileSync('./certs/cert.key'),
-	cert: fs.readFileSync('./certs/cert.pem'),
+// //ssl
+// const option = {
+// 	key: fs.readFileSync('./certs/cert.key'),
+// 	cert: fs.readFileSync('./certs/cert.pem'),
+// }
+
+// //https
+// const server = https.createServer(option, app)
+// server.listen(443, () => {
+// 	console.log('https server start')
+// })
+
+// === HTTP редирект (порт 80 → 443) ===
+http
+	.createServer((req, res) => {
+		res.writeHead(301, { Location: 'https://' + req.headers.host + req.url })
+		res.end()
+	})
+	.listen(80, () => {
+		console.log('HTTP редирект запущен на порту 80')
+	})
+
+// === HTTPS настройки ===
+let httpsOptions
+try {
+	httpsOptions = {
+		key: fs.readFileSync(path.join(__dirname, 'certs', 'cert.key')),
+		cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem')),
+	}
+} catch (err) {
+	console.error('❌ Ошибка загрузки SSL-сертификата:', err.message)
+	console.error('Выполните:')
+	console.error(
+		'mkdir certs && openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certs/key.pem -out certs/cert.pem',
+	)
+	process.exit(1)
 }
 
-//https
-const server = https.createServer(option, app)
-server.listen(443, () => {
-	console.log('https server start')
+// === Запуск HTTPS ===
+https.createServer(httpsOptions, app).listen(443, () => {
+	console.log('✅ HTTPS сервер запущен на порту 443')
 })
