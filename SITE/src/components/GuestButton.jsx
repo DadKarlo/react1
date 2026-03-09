@@ -22,13 +22,17 @@ export default function GuestButton(props) {
 					margin: '0.8rem',
 				}}
 			>
-				{!show
-					? !!props.enru
-						? 'Start list'
-						: 'Стартовый протокол ( Заплывы )'
-					: !!props.enru
-						? 'Result card'
-						: 'Итоговый протокол ( Результаты )'}
+				{!show ? (
+					!!props.enru ? (
+						<pre>Start list</pre>
+					) : (
+						<pre>Стартовый протокол ( Заплывы )</pre>
+					)
+				) : !!props.enru ? (
+					<pre>Result card</pre>
+				) : (
+					<pre>Итоговый протокол ( Результаты )</pre>
+				)}
 			</button>
 			{!!show ? (
 				<GuestProtocols data={props.data} enru={props.enru} />
