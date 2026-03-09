@@ -149,16 +149,16 @@ function Home(props) {
 					fontFamily: 'Arial',
 					backgroundColor: 'white',
 					textAlign: 'center',
-					whiteSpace: 'nowrap',
+					whiteSpace: 'pre-wrap',
 				}}
 			>
 				{!!show
 					? !!props.enru
 						? 'Start list'
-						: 'Стартовый протокол ' + '( Заплывы )'
+						: 'Стартовый протокол \n ( Заплывы )'
 					: !!props.enru
 						? 'Result card'
-						: 'Итоговый протокол ' + '( Результаты )'}
+						: 'Итоговый протокол \n ( Результаты )'}
 			</button>
 			<br />
 			{!!show ? (
