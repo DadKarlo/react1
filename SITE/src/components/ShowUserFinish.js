@@ -138,7 +138,7 @@ export default function ShowUserFinish(props) {
 													<thead>
 														<tr key={item2.id}>
 															<th style={{ fontSize: '0.55rem' }}>
-																{!!props.enru ? 'Level' : 'Место'}
+																{!!props.enru ? 'Place' : 'Место'}
 															</th>
 															<th style={{ fontSize: '0.55rem' }}>
 																{!!props.enru ? 'Name' : 'Участник'}

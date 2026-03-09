@@ -105,7 +105,7 @@ app.get('/:user', async (req, res) => {
 				const use = await data[user]
 				use.login = randomUUID()
 				res.write(`data: ${JSON.stringify(use)}\n\n`) //index!!!
-			}, 15000)
+			}, 5000)
 
 			req.on('close', () => clearInterval(interval1))
 		} else {
