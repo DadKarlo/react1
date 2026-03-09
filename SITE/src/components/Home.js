@@ -149,6 +149,7 @@ function Home(props) {
 					fontFamily: 'Arial',
 					backgroundColor: 'white',
 					textAlign: 'center',
+					flexWrap: 'nowrap',
 				}}
 			>
 				{!!show
