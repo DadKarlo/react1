@@ -23,7 +23,7 @@ function FormRoad(props) {
 			if (!res.ok) {
 				throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
+			// const result = await res.json()
 
 			const resApp = await fetch(API_site + '/usesport', {
 				method: 'POST',
@@ -35,11 +35,11 @@ function FormRoad(props) {
 			if (!resApp.ok) {
 				throw new Error('Ошибка сети или сервера')
 			}
-			const resultApp = await resApp.json()
+			// const resultApp = await resApp.json()
 
-			console.log(result, resultApp)
+			// console.log(result, resultApp)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 		}
 	}
 

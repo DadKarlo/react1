@@ -39,14 +39,14 @@ export default function TdButtonSetup(props) {
 				}
 				// throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErrE('✔')
 			setTimeout(() => {
 				setIsErrE('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrE('⚠!')
 			setTimeout(() => {
 				setIsErrE('')
@@ -77,14 +77,14 @@ export default function TdButtonSetup(props) {
 				}
 				// throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErrQ('✔')
 			setTimeout(() => {
 				setIsErrQ('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrQ('⚠!')
 			setTimeout(() => {
 				setIsErrQ('')
@@ -115,14 +115,14 @@ export default function TdButtonSetup(props) {
 				}
 				// throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErrN('✔')
 			setTimeout(() => {
 				setIsErrN('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrN('⚠!')
 			setTimeout(() => {
 				setIsErrN('')
@@ -153,12 +153,12 @@ export default function TdButtonSetup(props) {
 					headers: { 'Content-type': 'application/json' },
 				})
 				if (!res.ok) {
-					console.log('Ошибка сети или сервера!')
+					// console.log('Ошибка сети или сервера!')
 				}
-				const result = await res.json()
-				console.log(result)
+				// const result = await res.json()
+				// console.log(result)
 			} catch (error) {
-				console.log(error)
+				// console.log(error)
 			}
 		}
 	}
@@ -185,14 +185,14 @@ export default function TdButtonSetup(props) {
 			}
 			// throw new Error('Ошибка сети или сервера')
 
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErrD('✔')
 			setTimeout(() => {
 				setIsErrD('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrD('⚠!')
 			setTimeout(() => {
 				setIsErrD('')

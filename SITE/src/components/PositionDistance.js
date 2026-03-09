@@ -32,11 +32,11 @@ function PositionDistance(props) {
 				if (!resApp.ok) {
 					throw new Error('Ошибка сети или сервера')
 				}
-				const resultApp = await resApp.json()
+				// const resultApp = await resApp.json()
 
-				console.log(resultApp)
+				// console.log(resultApp)
 			} catch (error) {
-				console.log(error)
+				// console.log(error)
 			}
 		}
 	}

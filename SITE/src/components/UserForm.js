@@ -90,14 +90,14 @@ function FormUser(props) {
 					setIsErr('')
 				}, 1970)
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErr(!props.enru ? 'Успешно!' : 'Successfully!')
 			setTimeout(() => {
 				setIsErr('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErr(!props.enru ? 'Ошибка!' : 'Error')
 			setTimeout(() => {
 				setIsErr('')

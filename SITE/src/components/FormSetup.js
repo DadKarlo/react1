@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import '../App.css'
 import FormInfo from './formInfo'
 import FormCompetitionName from './formCompetitionName'
@@ -51,14 +51,14 @@ function FormSetup(props) {
 				}
 				// throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErr(!props.enru ? 'Успешно!' : 'Successfully!')
 			setTimeout(() => {
 				setIsErr('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErr(!props.enru ? 'Ошибка!' : 'Error')
 			setTimeout(() => {
 				setIsErr('')
@@ -82,7 +82,7 @@ function FormSetup(props) {
 			if (!res.ok) {
 				throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
+			// const result = await res.json()
 
 			const resApp = await fetch(API_site + '/usesport', {
 				method: 'POST',
@@ -94,14 +94,14 @@ function FormSetup(props) {
 			if (!resApp.ok) {
 				throw new Error('Ошибка сети или сервера')
 			}
-			const resultApp = await resApp.json()
-			console.log(result, resultApp)
+			// const resultApp = await resApp.json()
+			// console.log(result, resultApp)
 			setIsErrT(!props.enru ? 'Успешно!' : 'Successfully!')
 			setTimeout(() => {
 				setIsErrT('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrT(!props.enru ? 'Ошибка!' : 'Error')
 			setTimeout(() => {
 				setIsErrT('')

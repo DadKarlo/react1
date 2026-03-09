@@ -18,7 +18,6 @@ export default function TdInput(props) {
 			copysetLastname(Lastname)
 			copysetFirstname(Firstname)
 		}
-		console.log(isFocus) //tttttttttttttt
 	}, [isFocus, Firstname, Lastname])
 
 	const handlChangeLastname = (e) => {
@@ -49,12 +48,12 @@ export default function TdInput(props) {
 				headers: { 'Content-type': 'application/json' },
 			})
 			if (!res.ok) {
-				console.log('Ошибка сети или сервера!')
+				// console.log('Ошибка сети или сервера!')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 		}
 		timeoutInputChangeFocus = setTimeout(() => {
 			setIsFocus(false)

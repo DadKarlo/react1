@@ -28,14 +28,14 @@ export default function ButtonDSQ(props) {
 				}
 				// throw new Error('Ошибка сети или сервера')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErrQ('✔')
 			setTimeout(() => {
 				setIsErrQ('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrQ('⚠!')
 			setTimeout(() => {
 				setIsErrQ('')

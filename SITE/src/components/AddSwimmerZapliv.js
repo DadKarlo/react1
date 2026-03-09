@@ -105,14 +105,14 @@ export default function AddSwimmerZ(props) {
 					setIsErr('')
 				}, 1970)
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 			setIsErr('✔')
 			setTimeout(() => {
 				setIsErr('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErr('⚠!')
 			setTimeout(() => {
 				setIsErr('')

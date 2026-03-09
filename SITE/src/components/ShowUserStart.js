@@ -38,14 +38,14 @@ export default function ShowUserStart(props) {
 					setIsErrGB('')
 				}, 1970)
 			}
-			const resultApp = await resApp.json()
-			console.log(resultApp)
+			// const resultApp = await resApp.json()
+			// console.log(resultApp)
 			setIsErrGB('✔')
 			setTimeout(() => {
 				setIsErrGB('')
 			}, 1970)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 			setIsErrGB('⚠!')
 			setTimeout(() => {
 				setIsErrGB('')
@@ -54,7 +54,7 @@ export default function ShowUserStart(props) {
 		setIsLoadingGB(false)
 	}
 
-	console.log(data) //const zapliv = user.sportsmens.filter((u) => u.ids === i + 1)
+	// console.log(data) //const zapliv = user.sportsmens.filter((u) => u.ids === i + 1)
 	return (
 		<div
 			style={{

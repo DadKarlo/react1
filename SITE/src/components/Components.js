@@ -21,7 +21,7 @@ export default function Components(props) {
 			.catch((err) => console.log(err))
 	}, [web])
 
-	console.log(www, 'www')
+	// console.log(www, 'www')
 
 	const guest = window.location.origin
 

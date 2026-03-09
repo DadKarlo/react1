@@ -27,22 +27,22 @@ function Home(props) {
 		const user = new URL(document.URL)
 		const sse = new EventSource(API_site + `${user.pathname}`) //!!!SSE variant
 		sse.onopen = () => {
-			console.log('onopen')
+			// console.log('onopen')
 			props.sse(true)
 		}
 		sse.onmessage = async (e) => {
 			const data = await JSON.parse(e.data)
-			console.log(data, 'sse')
+			// console.log(data, 'sse')
 			setDate(data)
 		}
 		sse.onerror = (err) => {
 			props.sse(false)
-			console.log(err)
+			// console.log(err)
 		}
 		return () => {
 			sse.close()
 			props.sse(false)
-			console.log('close')
+			// console.log('close')
 		}
 	}, []) //!!!SSE
 

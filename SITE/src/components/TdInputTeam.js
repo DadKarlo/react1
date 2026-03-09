@@ -15,7 +15,6 @@ export default function TdInputTeam(props) {
 		if (!isFocus) {
 			copysetTeam(Team)
 		}
-		console.log(isFocus) //tttttttttttttt
 	}, [isFocus, Team])
 
 	const handlChangeTeam = (e) => {
@@ -41,12 +40,12 @@ export default function TdInputTeam(props) {
 				headers: { 'Content-type': 'application/json' },
 			})
 			if (!res.ok) {
-				console.log('Ошибка сети или сервера!')
+				// console.log('Ошибка сети или сервера!')
 			}
-			const result = await res.json()
-			console.log(result)
+			// const result = await res.json()
+			// console.log(result)
 		} catch (error) {
-			console.log(error)
+			// console.log(error)
 		}
 		timeoutInputChangeFocus2 = setTimeout(() => {
 			setIsFocus(false)
