@@ -66,7 +66,7 @@ export default function Components(props) {
 							type="button"
 							onClick={setShowuser}
 						>
-							{!!props.enru ? 'User:' : 'Пользлватель:'}
+							{!!props.enru ? 'User:' : 'Пользователь:'}
 						</button>{' '}
 						{showuser ? '***' : `${web}`}
 					</h4>

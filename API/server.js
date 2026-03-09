@@ -85,7 +85,7 @@ app.get('/:user', async (req, res) => {
 				const use = await data.find((i) => i.login === user)
 				use.login = randomUUID()
 				res.write(`data: ${JSON.stringify(use)}\n\n`) //index!!!
-			}, 10000)
+			}, 5000)
 
 			req.on('close', () => clearInterval(interval))
 		} else {
@@ -105,7 +105,7 @@ app.get('/:user', async (req, res) => {
 				const use = await data[user]
 				use.login = randomUUID()
 				res.write(`data: ${JSON.stringify(use)}\n\n`) //index!!!
-			}, 10000)
+			}, 15000)
 
 			req.on('close', () => clearInterval(interval1))
 		} else {
