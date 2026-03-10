@@ -130,7 +130,7 @@ export default function GuestZapliv(props) {
 													.map((item) => (
 														<tr key={item.id}>
 															<td>{item.idr}</td>
-															<td>
+															<td style={{ textAlign: 'left' }}>
 																{item.lastname} {item.firstname}
 															</td>
 															{data?.setup?.ShowDate === 'true' && (
